@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+ 
+<html>
+    <head>
+        <title>Music Box in Canvas</title>
+        <meta charset="utf-8">
+         
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+         <!--
+         Keep a 2D array for blocks.  Calculate each box status
+         when building
+         -->
+        <script>
+            $(document).ready(function() {  
+            	var borderX = 100;
+            	var borderY = 100;
+                var canvas = document.getElementById("myCanvas");
+                var ctx = canvas.getContext("2d");
+                ctx.fillStyle='black';
+                ctx.fillRect(0,0,canvas.width,canvas.height);
+                var boxArray = [];
+                for(var x = 0; x < 16; x++) {
+                    boxArray[x] = [];
+                    for(var y = 0; y < 16; y++) {
+                        boxArray[x][y] = x*y;
+                    }
+                }
+                console.log(boxArray);
+                drawBoxes(canvas,boxArray);
+
+                function drawBoxes(canvas, array) {
+                    var innerCtx = canvas.getContext("2d");
+                    //innerCtx.fillStyle('grey');
+
+                    for(var x = 0;x<16;x++)
+                    {
+                        for (var y = 0; y < 16; y++)
+                        {
+                            innerCtx.fillRect((x*30 + 8) + borderX,(y*30 + 8) + borderY,22,22);
+                        }
+                    }
+                }
+                function writeMessage(canvas, message) {
+					var context = canvas.getContext('2d');
+					context.clearRect(0, 0, 500, 30);
+					context.font = '18pt Calibri';
+					context.fillStyle = 'black';
+					context.fillText(message, 10, 25);
+			  	}
+			   function getMousePos(canvas, evt) {
+			        var rect = canvas.getBoundingClientRect();
+					return {
+				  		x: evt.clientX - rect.left,
+				  		y: evt.clientY - rect.top
+					};
+			  	}
+                canvas.addEventListener('mousemove', function(evt) {
+        		var mousePos = getMousePos(canvas, evt);
+        		var message = 'Mouse position: ' + mousePos.x + ',' + mousePos.y;
+        		writeMessage(canvas, message);
+      			}, false);
+                 
+                 
+                 
+            });
+        </script>
+    </head>
+     
+    <body>
+        <canvas id="myCanvas" width="1000" height="1000">
+            <!-- Insert fallback content here -->
+        </canvas>
+    </body>
+</html>
