@@ -13,7 +13,7 @@
         </style>
         <script src="Modernizr/modernizr-2.0.6.js"></script>
 
-        <script src = "SimpleSquareParticle.js"></script>
+        <script src = "js/SimpleSquareParticle.js"></script>
 
         <script type="text/javascript">
 
@@ -101,41 +101,6 @@
                         }
                     }
 
-
-/*var i;
- var tempX;
- var tempY;
- var tempRad;
- var tempR;
- var tempG;
- var tempB;
- var tempA;
- var tempColor;
- for (i=0; i < numShapes; i++) {
- tempRad = 5 + Math.floor(Math.random()*20);
- tempX = Math.random()*(theCanvas.width - tempRad);
- tempY = Math.random()*(theCanvas.height - tempRad);
-
- //we set a randomized color, including a random alpha (transparency) value.
- //The color is set using the rgba() method.
- tempR = Math.floor(Math.random()*255);
- tempG = Math.floor(Math.random()*255);
- tempB = Math.floor(Math.random()*255);
- tempA = 0.3 + 0.5*Math.random();
- tempColor = "rgba(" + tempR + "," + tempG + "," + tempB + "," + tempA + ")";
-
- //randomly select either a circle or a square
- if (Math.random() < 0.5) {
- tempShape = new SimpleDiskParticle(tempX, tempY);
- }
- else {
- tempShape = new SimpleSquareParticle(tempX, tempY);
- }
-
- tempShape.color = tempColor;
- tempShape.radius = tempRad;
- shapes.push(tempShape);
- }*/
                 }
                 function mouseDownListener(evt) {
                     console.log("Mouse Down");
